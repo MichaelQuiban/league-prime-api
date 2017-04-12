@@ -5,7 +5,7 @@ app.use(express.static('public'));
 let server;
 
 app.get("/server", (req, res) => {
-  res.status(200)
+  res.status(200).send("Hello world!");
 });
 
 function runServer() {
