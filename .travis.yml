@@ -7,3 +7,4 @@ deploy:
   app: league-prime-api
   on:
     repo: TheSaintMichael/league-prime-api
+before_script: chmod 0777 ./node_modules/.bin/mocha

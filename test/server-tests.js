@@ -15,11 +15,12 @@ describe('Server', function() {
     return closeServer();
   });
 
-  it('should return 200', function() {
-    return chai.request(app)
+  it('should return 200', function(done) {
+    chai.request(app)
       .get('/server')
       .then(function(res) {
         res.should.have.status(200);
       });
-  });
-});
+      done();
+    });
+ });

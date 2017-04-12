@@ -4,6 +4,10 @@ app.use(express.static('public'));
 
 let server;
 
+app.get("/server", (req, res) => {
+  res.status(200)
+});
+
 function runServer() {
   const port = process.env.PORT || 8080;
   return new Promise((resolve, reject) => {
