@@ -41,3 +41,30 @@ const TRACKING_CHAMPION = {
         "championLosses": 239
     }]
 }
+
+function getSummonerData(callbackFn) {
+    // we use a `setTimeout` to make this asynchronous
+    // as it would be with a real AJAX call.
+	setTimeout(function(){ callbackFn(SUMMONER_OVERALL)}, 1);
+}
+
+// this function stays the same when we connect
+// to real API later
+function displaySummonerData(data) {
+    for (index in data.summonerData) {
+	   $('body').append(
+        '<p>' + data.summonerData[index].text + '</p>');
+    }
+}
+
+// this function can stay the same even when we
+// are connecting to real API
+function getAndDisplaySummonerData() {
+	getSummonerData(displaySummonerData);
+}
+
+//  on page load do this
+$(function() {
+	getAndDisplaySummonerData();
+});
+
