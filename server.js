@@ -1,6 +1,23 @@
-var express = require('express');
-var app = express();
-app.use(express.static('public'));
+const express = require('express');
+const mongoose = require ('mongoose');
+const morgan = require('morgan')
+const parser = require('body-parser')
+app.use(express.static('public')); //Fix for issues with express
+
+//Database URL's
+const {DATABASE_URL, PORT} = require('./config');
+
+const app = express();
+
+app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
+app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.
+app.use(parser.urlencoded({
+  extended: true
+}));
+
+//Mongoose' internal promise-like object.
+mongoose.Promise = global.Promise;
+
 
 let server;
 
