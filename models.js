@@ -1,14 +1,14 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-//User information
-const loginSchema = new Schema({
-	username: { type: String, required: true, unique: true},
+//User information, a username, and password.
+const loginSchema = mongoose.Schema({
+	username: { type: String, required: true, unique: true}, 
 	password: { type: String, required: true}
 })
 
 //Champion Tracking Data
-const championSchema = new Schema({
+const championSchema = mongoose.Schema({
 	name: {type: String, required: true, unique: true}, //Champion Name
 	build: {type: String}, //Champion build type: ADC, APC, Jungle
 	lane: {type: String, required: true}, //Which lane did you play in?
@@ -21,7 +21,7 @@ const championSchema = new Schema({
 })
 
 //Ranked Tracking Data
-const rankedSchema = new Schema({
+const rankedSchema = mongoose.Schema({
 	ranking: {type: String, required: true}, //Curent total rank symbol. (Silver, gold, diamond)
 	role: {type: String, required: true}, //Current ranked role (Support, ADC, APC)
 	elo: {type: String, required: true}, //Ranking score (Total ELO score)
@@ -34,5 +34,4 @@ const Champion = mongoose.model('Champion', championSchema;
 const Ranked = mongoose.model('Ranked', rankedSchema);
 
 //Make this available to our users in the League-Prime-Api
-module.exports = Login;
-module.exports = Player;
+module.exports = {Login, Champion, Ranked};
