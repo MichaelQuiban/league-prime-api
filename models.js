@@ -7,24 +7,31 @@ const loginSchema = mongoose.Schema({
 	password: { type: String, required: true}
 })
 
+loginSchema.methods.apiRepr = function() {
+	return {
+		username: this.username,
+		password: this.password
+	};
+}
+
 //Champion Tracking Data
 const championSchema = mongoose.Schema({
 	name: {type: String, required: true, unique: true}, //Champion Name
-	build: {type: String}, //Champion build type: ADC, APC, Jungle
 	lane: {type: String, required: true}, //Which lane did you play in?
 	wins: {type: String, required: true}, //How many wins does this champion have?
 	loss: {type: String, required: true}, //How many losses does this champion have?
-	rank: {type: Boolean}, //Are you playing ranked?
-	damage: {type: String}, //How much damage did you do?
+	build: {type: String}, //Champion build type: ADC, APC, Jungle
 	kills: {type: String}, //How many kills do you have?
 	deaths: {type: String} //How many deaths do you have?
+	damage: {type: String}, //How much damage did you do?
 })
+
 
 //Ranked Tracking Data
 const rankedSchema = mongoose.Schema({
 	ranking: {type: String, required: true}, //Curent total rank symbol. (Silver, gold, diamond)
-	role: {type: String, required: true}, //Current ranked role (Support, ADC, APC)
 	elo: {type: String, required: true}, //Ranking score (Total ELO score)
+	role: {type: String, required: true}, //Current ranked role (Support, ADC, APC)
 	progress: {type: Boolean, required: true} //Did you win? Yes or no?
 })
 
