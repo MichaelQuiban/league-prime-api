@@ -1,5 +1,5 @@
 const express = require('express');
-const mongoose = require ('mongoose');
+const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
 const morgan = require('morgan')
 const parser = require('body-parser')
 app.use(express.static('public')); //Fix for issues with express
