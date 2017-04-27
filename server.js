@@ -3,6 +3,7 @@ const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
 const morgan = require('morgan')
 const parser = require('body-parser')
 app.use(express.static('public')); //Fix for issues with express
+const {championData} = require('./models');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
@@ -23,6 +24,14 @@ let server;
 
 app.get("/server", (req, res) => {
   res.status(200).send("Hello world!");
+});
+
+//User retrieves information
+app.get("/champion-info", (req, res) => {
+  championData
+  .find()
+  .exec()
+  .then(championInfo)
 });
 
 function runServer() {
