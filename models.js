@@ -20,13 +20,13 @@ const championSchema = mongoose.Schema({
 	loss: {type: Number, required: true}, //How many losses does this champion have?
 	build: {type: String}, //Champion build type: ADC, APC, Jungle
 	kills: {type: Number}, //How many kills do you have?
-	deaths: {type: Number} //How many deaths do you have?
-	damage: {type: Number}, //How much damage did you do?
+	deaths: {type: Number}, //How many deaths do you have?
+	damage: {type: Number} //How much damage did you do?
 })
 
 //Create a model using the schema data.
 const User = mongoose.model('User', userSchema);
-const Champion = mongoose.model('Champion', championSchema;
+const Champion = mongoose.model('Champion', championSchema);
 
 //Make this available to our users in the League-Prime-Api
 module.exports = {User, Champion};
