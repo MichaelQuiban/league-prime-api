@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
 	elo: {type: Number, required: true}, //Ranking score (Total ELO score)
 	role: {type: String, required: true}, //Current ranked role (Support, ADC, APC)
 	progress: {type: Boolean, required: true} //Did you win? Yes or no?
-})
+});
 
 //Champion Tracking Data
 const championSchema = mongoose.Schema({
@@ -22,7 +22,7 @@ const championSchema = mongoose.Schema({
 	kills: {type: Number}, //How many kills do you have?
 	deaths: {type: Number}, //How many deaths do you have?
 	damage: {type: Number} //How much damage did you do?
-})
+});
 
 //Create a model using the schema data.
 const User = mongoose.model('User', userSchema);
