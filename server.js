@@ -16,11 +16,14 @@ app.use(parser.urlencoded({
   extended: true
 }));
 
+//Static server for API
+app.use(express.static('public'));
+
 //Mongoose' internal promise-like object.
 mongoose.Promise = global.Promise;
 
-
 let server;
+
 
 app.get("/server", (req, res) => {
   res.status(200).send("Hello world!");
@@ -34,34 +37,14 @@ app.get("/champion-info", (req, res) => {
   .then(championInfo)
 });
 
-function runServer() {
-  const port = process.env.PORT || 8080;
-  return new Promise((resolve, reject) => {
-    server = app.listen(port, () => {
-      console.log(`Your app is listening on port ${port}`);
-      resolve(server);
-    }).on('error', err => {
-      reject(err)
-    });
-  });
-}
 
-function closeServer() {
-  return new Promise((resolve, reject) => {
-    console.log('Closing server');
-    server.close(err => {
-      if (err) {
-        reject(err);
-        // so we don't also call `resolve()`
-        return;
-      }
-      resolve();
-    });
-  });
-}
+app.listen(process.env.PORT || 8080, function() {
+  consle.log('Server is currently running @ localhost:8080');
+});
+
 
 if (require.main === module) {
   runServer().catch(err => console.error(err));
 };
 
-module.exports = {app, runServer, closeServer};
+module.exports = {app};
