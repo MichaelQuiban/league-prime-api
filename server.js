@@ -23,10 +23,11 @@ app.use(express.static('public'));
 mongoose.Promise = global.Promise;
 
 let server;
+let users = [];
 
-
-app.get("/server", (req, res) => {
-  res.status(200).send("Hello world!");
+app.get("/users/", (req, res) => {
+  users.push(req.params.username);
+  users.push(req.params.)
 });
 
 //User retrieves information
