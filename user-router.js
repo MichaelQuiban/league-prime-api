@@ -70,7 +70,7 @@ router.post('/',(req, res) =>  {
 		if (count > 0) {
 			return Promise.reject({
 				name: 'AuthenticationError',
-				message: 'username already taken'
+				message: 'username already taken, try another.'
 			});
 		}
 		// If no existing user, hash password
@@ -91,5 +91,35 @@ router.post('/',(req, res) =>  {
 			return res.status(422).json({message: err.message}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
 		}
 		res.status(500).json({message: 'Internal Server error'}) //http://www.restpatterns.org/HTTP_Status_Codes/500_-_Internal_Server_Error
+	});
+});
+
+	router.get('/', (req, res) => {
+		return User
+		.find()
+		.exec()
+		.then(users => res.json(users.map(user => user.apiRepr())))
+		.catch(err => console.log(err) && res.status(500).json({message: 'Internal Server error'}));
+	})
+
+const passportStrategy = new PassportStrategy(function(username, password, callback) {
+	let user;
+	User
+	.findOne({username: username})
+	.exec()
+	.then(_user => {
+		user = _user;
+		if (!user) {
+			return callback(null, false, {message: 'Incorrect username'});
+		}
+		return user.validatePassword(password);
+	})
+	.then(isValid => {
+		if(!isValid) {
+			return callback(null, false, {message: 'Incorrect password'});
+		}
+		else {
+			return callback(null, user)
+		}
 	});
 });
