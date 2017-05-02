@@ -84,12 +84,12 @@ router.post('/',(req, res) =>  {
 		})
 	})
 	.then(user => {
-		return res.status(201).json(user.apiRepr());
+		return res.status(201).json(user.apiRepr()); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
 	})
 	.catch(err => {
 		if (err.name === 'AuthenticationError'{
-			return res.status(422).json({message: err.message});
+			return res.status(422).json({message: err.message}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
 		}
-		res.status(500).json({message: 'Internal Server error'})
+		res.status(500).json({message: 'Internal Server error'}) //http://www.restpatterns.org/HTTP_Status_Codes/500_-_Internal_Server_Error
 	});
 });
