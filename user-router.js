@@ -60,4 +60,36 @@ router.post('/',(req, res) =>  {
 	if (password === '') {
 		return res.status(422).json({message: 'Incorrect field length: Password'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
 	}
-})
+
+	//Check for existing user
+	return User
+	.find({username})
+	.count()
+	.exec()
+	.then(count => {
+		if (count > 0) {
+			return Promise.reject({
+				name: 'AuthenticationError',
+				message: 'username already taken'
+			});
+		}
+		// If no existing user, hash password
+		return User.hashPassword(password)
+	})
+	.then(hash => {
+		return User
+		.create({
+			username: username,
+			password: hash
+		})
+	})
+	.then(user => {
+		return res.status(201).json(user.apiRepr());
+	})
+	.catch(err => {
+		if (err.name === 'AuthenticationError'{
+			return res.status(422).json({message: err.message});
+		}
+		res.status(500).json({message: 'Internal Server error'})
+	});
+});
