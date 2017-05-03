@@ -5,10 +5,10 @@ const Schema = mongoose.Schema;
 const userSchema = mongoose.Schema({
 	username: { type: String, required: true, unique: true}, 
 	password: { type: String, required: true},
-	ranking: {type: Number, required: true}, //Curent total rank symbol. (Silver, gold, diamond)
-	elo: {type: Number, required: true}, //Ranking score (Total ELO score)
-	role: {type: String, required: true}, //Current ranked role (Support, ADC, APC)
-	progress: {type: Boolean, required: true} //Did you win? Yes or no?
+	ranking: {type: Number}, //Curent total rank symbol. (Silver, gold, diamond)
+	elo: {type: Number}, //Ranking score (Total ELO score)
+	role: {type: String}, //Current ranked role (Support, ADC, APC)
+	progress: {type: Boolean} //Did you win? Yes or no?
 });
 
 //Champion Tracking Data

@@ -2,7 +2,7 @@ const express = require('express');
 const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
 const morgan = require('morgan')
 const parser = require('body-parser') 
-const {championData} = require('./models');
+const {User,Champion} = require('./models');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
@@ -26,7 +26,7 @@ let server;
 let users = [];
 
 //Signup 
- app.post('/users',(req, res) => { {
+ app.post('/users',(req, res) => {
     const requiredFields = ['username', 'password'];
     for(let i = 0; i < requiredFields.length; i++) {
       const userfield = requiredFields[i];
@@ -41,21 +41,16 @@ let users = [];
       username: req.body.username,
       password: req.body.password
     })
- }
+    .then(user => {
+      res.status(201).json(user);
+    }) 
+ })
+
 
 app.get("/users", (req, res) => {
   users.push(req.params.username);
   users.push(req.params.password);
 });
-
-//User retrieves information
-app.get("/champion-info", (req, res) => {
-  championData
-  .find()
-  .exec()
-  .then(championInfo)
-});
-
 
 /* app.listen(process.env.PORT || 8080, function() {
   console.log('Server is currently running @ localhost:8080');
