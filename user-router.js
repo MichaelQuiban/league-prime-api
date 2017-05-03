@@ -123,3 +123,8 @@ const passportStrategy = new PassportStrategy(function(username, password, callb
 		}
 	});
 });
+
+passport.use(PassportStrategy);
+router.use(passport.initialize());
+
+module.exports = {router};
