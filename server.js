@@ -1,7 +1,9 @@
 const express = require('express');
 const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
-const morgan = require('morgan')
-const parser = require('body-parser') 
+const morgan = require('morgan');
+const parser = require('body-parser') ;
+const userRouter = require('./user-router');
+const championRouter = require('./champion-router');
 const {User,Champion} = require('./models');
 
 //Database URL's
@@ -9,6 +11,9 @@ const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
 app.use(express.static('public'))
+
+app.use('/users', userRouter)
+app.use('/champion', championRouter)
 
 app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
 app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.
