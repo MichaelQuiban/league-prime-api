@@ -44,7 +44,7 @@ router.post('/',(req, res) =>  {
 	username = username.trim();
 
 	if (username === '') {
-		return res.status(422).json({message: 'Incorrect Username Field: Enter Username'})http: //www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
+		return res.status(422).json({message: 'Incorrect Username Field: Enter Username'})//www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
 	}
 
 	if (!(password)) {
@@ -87,7 +87,7 @@ router.post('/',(req, res) =>  {
 		return res.status(201).json(user.apiRepr()); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
 	})
 	.catch(err => {
-		if (err.name === 'AuthenticationError'{
+		if (err.name === 'AuthenticationError') {
 			return res.status(422).json({message: err.message}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
 		}
 		res.status(500).json({message: 'Internal Server error'}) //http://www.restpatterns.org/HTTP_Status_Codes/500_-_Internal_Server_Error

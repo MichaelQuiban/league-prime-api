@@ -31,31 +31,10 @@ let server;
 let users = [];
 
 //Signup 
- app.post('/users',(req, res) => {
-    const requiredFields = ['username', 'password'];
-    for(let i = 0; i < requiredFields.length; i++) {
-      const userfield = requiredFields[i];
-      if(!(userfield in req.body)) {
-        const message = `Missing \`${field}\` in request body`
-        console.error(message);
-        return res.status(400).send(message);
-      }
-    }
-    User
-    .create({
-      username: req.body.username,
-      password: req.body.password
-    })
-    .then(user => {
-      res.status(201).json(user);
-    }) 
- })
 
 
-app.get("/users", (req, res) => {
-  users.push(req.params.username);
-  users.push(req.params.password);
-});
+
+
 
 /* app.listen(process.env.PORT || 8080, function() {
   console.log('Server is currently running @ localhost:8080');

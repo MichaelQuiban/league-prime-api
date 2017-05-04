@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const bcrypt = require('bcryptjs');
 const Schema = mongoose.Schema;
 
 //User information, a username, and password.
-const userSchema = mongoose.Schema({
+const UserSchema = mongoose.Schema({
 	username: { type: String, required: true, unique: true}, 
 	password: { type: String, required: true},
 	ranking: {type: Number}, //Curent total rank symbol. (Silver, gold, diamond)
@@ -10,6 +11,19 @@ const userSchema = mongoose.Schema({
 	role: {type: String}, //Current ranked role (Support, ADC, APC)
 	progress: {type: Boolean} //Did you win? Yes or no?
 });
+
+//Hash passwords using bcryptjs
+UserSchema.methods.validatePassword = function(password) {
+	return bcrypt
+	.compare(password, this.password)
+	.then(isValid => isValid);
+}
+
+UserSchema.methods.hashPassword = function(password){
+	return bcrypt
+	.has(password, 10)
+	.then(hash => hash);
+}
 
 //Champion Tracking Data
 const championSchema = mongoose.Schema({
@@ -23,6 +37,7 @@ const championSchema = mongoose.Schema({
 	deaths: {type: Number}, //How many deaths do you have?
 	damage: {type: Number} //How much damage did you do?
 });
+
 
 //Create a model using the schema data.
 const User = mongoose.model('User', userSchema);
