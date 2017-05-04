@@ -31,10 +31,25 @@ let server;
 let users = [];
 
 //Signup 
-
-
-
-
+ app.post('/users',(req, res) => {
+    const requiredFields = ['username', 'password'];
+    for(let i = 0; i < requiredFields.length; i++) {
+      const userfield = requiredFields[i];
+      if(!(userfield in req.body)) {
+        const message = `Missing \`${field}\` in request body`
+        console.error(message);
+        return res.status(400).send(message);
+      }
+    }
+    User
+    .create({
+      username: req.body.username,
+      password: req.body.password
+    })
+    .then(user => {
+      res.status(201).json(user);
+    }) 
+ })
 
 /* app.listen(process.env.PORT || 8080, function() {
   console.log('Server is currently running @ localhost:8080');
@@ -58,6 +73,19 @@ function runServer(database_url = DATABASE_URL, port = PORT) {
   });
 }
 
+function closeServer() {
+  return mongoose.disconnect().then(() => {
+     return new Promise((resolve, reject) => {
+       console.log('Closing server');
+       server.close(err => {
+           if (err) {
+               return reject(err);
+           }
+           resolve();
+       });
+     });
+  });
+}
 if (require.main === module) {
   runServer().catch(err => console.error(err));
 };

@@ -40,7 +40,7 @@ const championSchema = mongoose.Schema({
 
 
 //Create a model using the schema data.
-const User = mongoose.model('User', userSchema);
+const User = mongoose.model('User', UserSchema);
 const Champion = mongoose.model('Champion', championSchema);
 
 //Make this available to our users in the League-Prime-Api
