@@ -1,6 +1,3 @@
-const express = require('express');
-const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
-const morgan = require('morgan');
 const parser = require('body-parser') ;
 
 const {User,Champion} = require('./models');
