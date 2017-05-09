@@ -2,9 +2,10 @@ const express = require('express');
 const mongoose = require ('mongoose'); //https://www.npmjs.com/package/mongoose
 const morgan = require('morgan');
 const parser = require('body-parser') ;
+
+const {User,Champion} = require('./models');
 const userRouter = require('./user-router');
 const championRouter = require('./champion-router');
-const {User,Champion} = require('./models');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
@@ -27,33 +28,11 @@ app.use(express.static('public'));
 //Mongoose' internal promise-like object.
 mongoose.Promise = global.Promise;
 
+app.use('*', function(res, res){
+  return res.status(404).json({message: 'Not Found'});
+});
+
 let server;
-let users = [];
-
-//Signup 
- app.post('/users',(req, res) => {
-    const requiredFields = ['username', 'password'];
-    for(let i = 0; i < requiredFields.length; i++) {
-      const userfield = requiredFields[i];
-      if(!(userfield in req.body)) {
-        const message = `Missing \`${field}\` in request body`
-        console.error(message);
-        return res.status(400).send(message);
-      }
-    }
-    User
-    .create({
-      username: req.body.username,
-      password: req.body.password
-    })
-    .then(user => {
-      res.status(201).json(user);
-    }) 
- })
-
-/* app.listen(process.env.PORT || 8080, function() {
-  console.log('Server is currently running @ localhost:8080');
-}); */
 
 function runServer(database_url = DATABASE_URL, port = PORT) {
   return new Promise((resolve, reject) => {
