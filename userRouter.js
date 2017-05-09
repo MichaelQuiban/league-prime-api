@@ -1,13 +1,15 @@
 const {PassportStrategy} = require('passport-http');
 const express = require('express');
+const jsonParser = require('body-parser').json();
 const passport = require('passport');
+
 const {User} = require('./models'); //Based off the User Schema created.
+
 const router = express.Router();
 
-const jsonParser = require('body-parser').json();
 router.use(jsonParser);
 
-passport.use(new PassportStrategy(
+const strategy = new PassportStrategy(
   (username, password, cb) => {
     User
       .findOne({username})
@@ -24,7 +26,7 @@ passport.use(new PassportStrategy(
         return cb(null, user);
       })
       .catch(err => cb(err))
-}));
+});
 
 passport.use(strategy)
 

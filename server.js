@@ -1,8 +1,8 @@
 const parser = require('body-parser') ;
 
 const {User,Champion} = require('./models');
-const userRouter = require('./user-router');
-const championRouter = require('./champion-router');
+const userRouter = require('./userRouter');
+const championRouter = require('./championRouter');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
