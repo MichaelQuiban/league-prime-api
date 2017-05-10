@@ -1,4 +1,8 @@
-const parser = require('body-parser') ;
+const parser = require('body-parser');
+
+const express = require('express');
+const morgan = require('morgan');
+const mongoose = require('mongoose');
 
 const {User,Champion} = require('./models');
 const userRouter = require('./userRouter');
@@ -8,10 +12,10 @@ const championRouter = require('./championRouter');
 const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
-app.use(express.static('public'))
+app.use(express.static('public'));
 
-app.use('/users', userRouter)
-app.use('/champion', championRouter)
+app.use('/users', userRouter);
+app.use('/champion', championRouter);
 
 app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
 app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.

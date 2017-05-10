@@ -102,7 +102,7 @@ router.post('/',(req, res) =>  {
         return User
         .find()
         .exec()
-        .then(users => res.json(users.map(user => user.apiRepr())))
+        .then(users => res.json(users))
         .catch(err => console.log(err) && res.status(500).json({message: 'Internal Server error'}));
     })
 
@@ -131,4 +131,4 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
 passport.use(basicStrategy);
 router.use(passport.initialize());
 
-module.exports = {router};
+module.exports = router;
