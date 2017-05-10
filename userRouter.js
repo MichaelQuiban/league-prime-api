@@ -1,4 +1,4 @@
-const {PassportStrategy} = require('passport-http');
+const {BasicStrategy} = require('passport-http');
 const express = require('express');
 const jsonParser = require('body-parser').json();
 const passport = require('passport');
@@ -9,7 +9,7 @@ const router = express.Router();
 
 router.use(jsonParser);
 
-const strategy = new PassportStrategy(
+const strategy = new BasicStrategy(
   (username, password, cb) => {
     User
       .findOne({username})
@@ -106,7 +106,7 @@ router.post('/',(req, res) =>  {
         .catch(err => console.log(err) && res.status(500).json({message: 'Internal Server error'}));
     })
 
-const passportStrategy = new PassportStrategy(function(username, password, callback) {
+const basicStrategy = new BasicStrategy(function(username, password, callback) {
     let user;
     User
     .findOne({username: username})
@@ -128,7 +128,7 @@ const passportStrategy = new PassportStrategy(function(username, password, callb
     });
 });
 
-passport.use(PassportStrategy);
+passport.use(basicStrategy);
 router.use(passport.initialize());
 
 module.exports = {router};
