@@ -30,6 +30,7 @@ const strategy = new BasicStrategy(
 
 passport.use(strategy)
 
+//Creation of an account, Validation included on Username, Fields, and Passwords.
 router.post('/',(req, res) =>  {
     if(!req.body){
         return res.status(400).json({message: 'No request body located'}); //http://www.restpatterns.org/HTTP_Status_Codes/400_-_Bad_Request
@@ -41,8 +42,8 @@ router.post('/',(req, res) =>  {
 
     let {username, password} = req.body;
 
-    if(typeof username !== 'string' || 'number') {
-        return res.status(422).json({message: 'Incorrect Username Field: Please enter a string or number'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
+    if(typeof username !== 'string') {
+        return res.status(422).json({message: 'Incorrect Username Field: Please enter a string'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
     }
 
     username = username.trim();
@@ -55,7 +56,7 @@ router.post('/',(req, res) =>  {
         return res.status(422).json({message: 'Missing field: Password'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
     }
 
-    if (typeof password !== 'string' || 'number') {
+    if (typeof password !== 'string') {
         return res.status(422).json({message: 'Missing Password field: Please enter string or number'}) //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
     }
 
@@ -88,12 +89,13 @@ router.post('/',(req, res) =>  {
         })
     })
     .then(user => {
-        return res.status(201).json(user.apiRepr()); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
+        return res.status(201).json(user); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
     })
     .catch(err => {
         if (err.name === 'AuthenticationError') {
             return res.status(422).json({message: err.message}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
         }
+        console.log(err);
         res.status(500).json({message: 'Internal Server error'}) //http://www.restpatterns.org/HTTP_Status_Codes/500_-_Internal_Server_Error
     });
 });
@@ -128,6 +130,7 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
     });
 });
 
+router.get('/userRouter')
 passport.use(basicStrategy);
 router.use(passport.initialize());
 

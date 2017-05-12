@@ -20,10 +20,8 @@ UserSchema.methods.validatePassword = function(password) {
 	.then(isValid => isValid);
 }
 
-UserSchema.methods.hashPassword = function(password){
-	return bcrypt
-	.has(password, 10)
-	.then(hash => hash);
+UserSchema.statics.hashPassword = function(password){
+	return bcrypt.hash(password, 10)
 }
 
 //Champion Tracking Data
