@@ -4,12 +4,12 @@ const app = require('./server.js')
 
 const bodyParser = require('body-parser').json();
 
-const {Champion} = require('./models');
+const {Users} = require('./models');
 
 router.use(bodyParser);
 
 router.get('/', (req, res) => {
-    res.json(Champion.get());
+    res.json(Users.get());
 });
 
 module.exports = router;
