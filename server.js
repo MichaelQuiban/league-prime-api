@@ -31,6 +31,7 @@ app.use(express.static('public'));
 //Mongoose' internal promise-like object.
 mongoose.Promise = global.Promise;
 
+
 app.use('*', function(res, res){
   return res.status(404).json({message: 'Not Found'});
 });

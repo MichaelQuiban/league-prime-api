@@ -1,6 +1,28 @@
+/*Index: The Login Screen */
+#login-section {
+	height: 225px;
+	width: 705px;
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	margin-top: -112.5px;
+	margin-left: -352.5px;
+
+}
+
+#login-creds {
+	height: 25px;
+	width: 250px;
+	margin-bottom: 5px;
+	font-size: 1em;
+}
+
+/*Signup: The Signup Page */
+
+/*Main: The Main Tracking Area */
 .league-bar {
 	background-color:#000;
-	border-bottom: 2px solid #333333;
+	border-bottom: 5px solid #333;
 }
 
 .leaguebar-navbar a {
