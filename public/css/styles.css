@@ -7,6 +7,12 @@ a {
 	color: #fff;
 }
 
+input:focus::-webkit-input-placeholder { color:transparent; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+
+
 /*Index: The Login Screen */
 .header-font {
 	font-size: 1.8em;
@@ -52,7 +58,7 @@ a {
 }
 
 #forgot-password {
-	margin-left: 262px;
+	margin-left: 248px;
 	font-weight: bold;
 }
 
