@@ -3,6 +3,7 @@ const express = require('express');
 const jsonParser = require('body-parser').json();
 const passport = require('passport');
 
+
 const {User} = require('./models'); //Based off the User Schema created.
 
 const router = express.Router();
