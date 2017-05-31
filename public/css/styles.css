@@ -102,6 +102,33 @@ input[type=text] {
 } 
 
 /*Main: The Main Tracking Area */
+#logo-header {
+	width: 650px;
+	height: 250px;
+	background-image: url("http://gamesync.us/wp-content/uploads/2014/06/league_of_legends_metal_steel_logo.png");
+	background-repeat: no-repeat;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin-top:-470px;
+	margin-left:-325px;
+}
+
+#main-wrapper {
+	width: 100%;
+	margin: auto;
+	margin-top: 50px;
+}
+
+#ranking {
+	width: 50%;
+	float: left;
+}
+
+#champion {
+	width: 50%;
+	float: right;
+}
 
 /* Button Style remove */
 input[type=text], input[type=email], input[type=submit]{
