@@ -1,5 +1,6 @@
 body {
 	background-image: url("http://www.lolking.net/images/background.jpg");
+	width: 100%;
 }
 
 a {
@@ -107,17 +108,24 @@ input[type=text] {
 	height: 250px;
 	background-image: url("http://gamesync.us/wp-content/uploads/2014/06/league_of_legends_metal_steel_logo.png");
 	background-repeat: no-repeat;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin-top:-470px;
-	margin-left:-325px;
+	margin: 0 auto;
+}
+
+.main-header {
+	text-align: center;
 }
 
 #main-wrapper {
-	width: 100%;
+	width: 75%;
 	margin: auto;
 	margin-top: 50px;
+}
+
+.inner-wrapper {
+	width: 50%;
+	margin: auto;
+	background-color: rgba(0, 0, 255, 0.3);
+	padding: 20px 20px;
 }
 
 #ranking {
@@ -130,8 +138,11 @@ input[type=text] {
 	float: right;
 }
 
+h2 {
+	margin-bottom: 3px;
+}
 /* Button Style remove */
-input[type=text], input[type=email], input[type=submit]{
+input[type=text], input[type=email], input[type=submit] {
   appearance: none;
   -moz-appearance: none;
   -webkit-appearance: none;

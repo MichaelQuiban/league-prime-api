@@ -7,62 +7,61 @@
 </head>
 <body>
 
-<header id = "logo-header"></header>
-<nav class = "league-bar"></nav>
-    <img src = "" class = "index-image">
+    <div id = "logo-header"></div>
+    <nav class = "league-bar"></nav>
     <h1 class = "main-header" id = "main"> Start tracking your information now. </h1>
     <!--Ranked Area-->
     <content id = "main-wrapper">
         <section id = "ranking">
+             <div class = "inner-wrapper">
+                <h1>Track Ranked Data</h1>
+            
+                <form id = "ranked-form">
+                    <h2>Ranking</h2>
+                    <input type = 'text' required>
 
-            <h1 class = "index-header" id = "ranked-header">Track Ranked Data</h1>
+                    <h2>Elo Score</h2>
+                    <input type = 'text' required>
 
-            <form id = "ranked-form">
-                <h2>Ranking</h2>
-                <input type = 'text' placeholder = "Required" required>
+                    <h2>Type of role</h2>
+                    <input type = 'text' required>
 
-                <h2>Elo Score</h2>
-                <input type = 'text' placeholder = "Required" required>
-
-                <h2>Type of role</h2>
-                <input type = 'text' placeholder = "Required" required>
-
-                <h2>Progress: Wins/Loss</h2>
-                <input type = 'text' placeholder = "Required" required></br>
-                <input type = 'submit'>
-
-            </form>
+                    <h2>Progress: Wins/Loss</h2>
+                    <input type = 'text' required></br>
+                    <input type = 'submit'>
+                </form>
+            </div>
         </section>
 
         <!-- Champion Area -->
         <section id = "champion">
+            <div class = "inner-wrapper">
+                <h1>Track Champion Data</h1>
+            
+                <form id = "champion-form">
+                    <h2>Lane</h2>
+                    <input type = 'text' required>
+                    
+                    <h2>Wins</h2>
+                    <input type = 'text' required>
 
-            <h1 class = "index-header" id = "champion-header">Track Champion Data</h1>
+                    <h2>Loss</h2>
+                    <input type = 'text' required>
 
-            <form id = "champion-form">
-                <h2>Lane</h2>
-                <input type = 'text' placeholder = "Required" required>
-                
-                <h2>Wins</h2>
-                <input type = 'text' placeholder = "Required" required>
+                    <h2>Build</h2>
+                    <input type = 'text' required>
 
-                <h2>Loss</h2>
-                <input type = 'text' placeholder = "Required" required>
+                    <h2>Kills</h2>
+                    <input type = 'text' required>
 
-                <h2>Build</h2>
-                <input type = 'text' required>
+                    <h2>Deaths</h2>
+                    <input type = 'text' required>
 
-                <h2>Kills</h2>
-                <input type = 'text' required>
-
-                <h2>Deaths</h2>
-                <input type = 'text' required>
-
-                <h2>Damage</h2>
-                <input type = 'text' required><br>
-                <input type = 'submit'>
-
-            </form>
+                    <h2>Damage</h2>
+                    <input type = 'text' required><br>
+                    <input type = 'submit'>
+                </form>
+            </div>
         </section>
     </content>
 </body>
