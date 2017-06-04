@@ -48,7 +48,7 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 	text-align: center;
 }
 
-#login-creds {
+.login-creds {
 	height: 25px;
 	width: 250px;
 	margin-bottom: 5px;
@@ -141,6 +141,7 @@ input[type=text] {
 h2 {
 	margin-bottom: 3px;
 }
+
 /* Button Style remove */
 input[type=text], input[type=email], input[type=submit] {
   appearance: none;

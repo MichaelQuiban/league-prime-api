@@ -33,12 +33,13 @@ passport.use(strategy)
 
 //Creation of an account, Validation included on Username, Fields, and Passwords.
 router.post('/',(req, res) =>  {
+    console.log(req.body)
     if(!req.body){
         return res.status(400).json({message: 'No request body located'}); //http://www.restpatterns.org/HTTP_Status_Codes/400_-_Bad_Request
     }
 
     if(!('username' in req.body)) {
-        return res.status(422).json({message: 'Missing field: Username'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
+        return res.status(422).json({message: 'Missing field: username'}); //http://www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
     }
 
     let {username, password} = req.body;
@@ -50,7 +51,7 @@ router.post('/',(req, res) =>  {
     username = username.trim();
 
     if (username === '') {
-        return res.status(422).json({message: 'Incorrect Username Field: Enter Username'})//www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
+        return res.status(422).json({message: 'Incorrect Username Field: Enter username'})//www.restpatterns.org/HTTP_Status_Codes/422_-_Unprocessable_Entity
     }
 
     if (!(password)) {
