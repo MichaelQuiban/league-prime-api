@@ -1,33 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>League Prime Login</title>
-    <link rel = 'stylesheet' type = "text/css" href = 'css/styles.css'>
-    <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
-</head>
-<body>
-    <section id = "login-section">
-        <header>
-            <h1 class = "header-font">Welcome to League Prime</h1>
-            <h3 class = "sub-font"> Popular <a href = "http://na.leagueoflegends.com/">League of Legends</a> utility to track competitive performance.</h2>
-        </header>
-        <form>
-
-           <!-- Submit request - PUT -->
-            <input id = "login-creds" type = 'text' placeholder = "Username" required>
-            <input id = "login-creds" type = 'text' placeholder = "Password" required>
-            <input type = 'submit' class = "login" value = "Login" href = "main.html">
-            <input type = 'submit' class = "sign-up" value = "Sign Up" href = "signup.html">
-            <a href = "" id = "forgot-password" >Forgotten Password?</a>
-        </form>
-    </section>
-    <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-    <script src = "js/app.js"></script>
-</body>
+    <head>
+        <meta charset="UTF-8">
+        <title>League Prime Login</title>
+        <link rel='stylesheet' type="text/css" href='css/styles.css'>
+        <link href="https://fonts.googleapis.com/css?family=Vollkorn" rel="stylesheet">
+    </head>
+    <body>
+        <section id="login-section">
+            <header>
+                <h1 class="header-font">Welcome to League Prime</h1>
+                <h3 class="sub-font"> Popular <a href="http://na.leagueoflegends.com/">League of Legends</a> utility to track competitive performance.</h2>
+            </header>
+            <form id="loginForm">
+               <!-- Submit request - PUT -->
+                <input id="username" class="login-creds" type='text' placeholder="Username" required>
+                <input id="password" class="login-creds" type='password' placeholder="Password" required>
+                <input type='submit' class="login" value="Login" href="main.html">
+                <input type='submit' class="sign-up" value="Sign Up" href="signup.html">
+                <a href="" id="forgot-password">Forgotten Password?</a>
+            </form>
+        </section>
+        <script
+      src="https://code.jquery.com/jquery-3.2.1.min.js"
+      integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+      crossorigin="anonymous"></script>
+        <script src = "js/app.js"></script>
+    </body>
 </html>
 
 <!-- Form- Post Request AJAX post request on the client side JS. Username Password - 
