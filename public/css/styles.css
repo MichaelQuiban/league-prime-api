@@ -105,14 +105,19 @@ input[type=text] {
 /*Main: The Main Tracking Area */
 #logo-header {
 	width: 650px;
-	height: 250px;
-	background-image: url("http://gamesync.us/wp-content/uploads/2014/06/league_of_legends_metal_steel_logo.png");
+	height: 221px;
+	background-image: url("http://static.wixstatic.com/media/916881_3ed1a86e3bcc4554a001b6936a9da809.png_srz_600_237_85_22_0.50_1.20_0.00_png_srz");
 	background-repeat: no-repeat;
 	margin: 0 auto;
 }
 
 .main-header {
 	text-align: center;
+}
+
+#main {
+	background-color: black;
+	opacity: 0.8;
 }
 
 #main-wrapper {
@@ -124,8 +129,11 @@ input[type=text] {
 .inner-wrapper {
 	width: 50%;
 	margin: auto;
-	background-color: rgba(0, 0, 255, 0.3);
+	background-color: rgba(70, 61, 57, 1);
 	padding: 20px 20px;
+	border: 1px solid black;
+	box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+	text-align: center;
 }
 
 #ranking {
@@ -140,7 +148,13 @@ input[type=text] {
 
 h2 {
 	margin-bottom: 3px;
+	color: #FFFFF3;
+	font-family: 'Vollkorn', serif;
+	font-weight: 100;
 }
+
+
+
 /* Button Style remove */
 input[type=text], input[type=email], input[type=submit] {
   appearance: none;
