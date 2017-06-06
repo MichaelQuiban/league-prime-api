@@ -141,7 +141,6 @@ input[type=text] {
 h2 {
 	margin-bottom: 3px;
 }
-
 /* Button Style remove */
 input[type=text], input[type=email], input[type=submit] {
   appearance: none;

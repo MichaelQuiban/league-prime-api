@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const {User,Champion} = require('./models');
 const userRouter = require('./userRouter');
 const championRouter = require('./championRouter');
-const loginRouter = require('./loginRouter');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
@@ -17,7 +16,7 @@ app.use(express.static('public'));
 
 app.use('/users', userRouter);
 app.use('/champion', championRouter);
-app.use('/login', loginRouter);
+
 
 app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
 app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.
@@ -33,7 +32,7 @@ mongoose.Promise = global.Promise;
 
 
 app.use('*', function(res, res){
-  return res.status(404).json({message: 'Not Found'});
+  return res.status(404).json({message: 'Not Found'});4
 });
 
 let server;

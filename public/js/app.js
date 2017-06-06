@@ -75,11 +75,9 @@ $(document).ready(function() {
         login.password = $("#password").val();
         console.log(login)
         $.ajax({
-            url : "/users",
             type: "POST",
-            processData: true,
-            dataType: "application/json",
-            data: login,
+            url : "/users",
+            dataType: "json",
             success: function(data, textStatus, jqXHR)
                 {
                     //data - response from server
