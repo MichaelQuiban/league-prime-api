@@ -141,9 +141,21 @@ input[type=text] {
 	float: left;
 }
 
+#ranked-form, #champion-form {
+	padding-bottom: 2px;
+}
+
+#ranked-form [type=text] {
+	color: white;
+}
+
 #champion {
 	width: 50%;
 	float: right;
+}
+
+#champion-form [type=text] {
+	color: white;
 }
 
 h2 {
@@ -152,8 +164,6 @@ h2 {
 	font-family: 'Vollkorn', serif;
 	font-weight: 100;
 }
-
-
 
 /* Button Style remove */
 input[type=text], input[type=email], input[type=submit] {

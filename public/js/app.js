@@ -77,6 +77,7 @@ $(document).ready(function() {
         $.ajax({
             type: "POST",
             url : "/users",
+            data: JSON.stringify(login),
             dataType: "json",
             success: function(data, textStatus, jqXHR)
                 {
