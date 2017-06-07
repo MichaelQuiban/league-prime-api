@@ -87,10 +87,9 @@ $(document).ready(function() {
                 },
             error: function (jqXHR, textStatus, errorThrown)
                 {
-                    //Quick and easy console log command
+                    //quick and easy console log command
                     console.log('login failed')
                 }
         });
-
     })
 });
