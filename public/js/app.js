@@ -70,15 +70,16 @@ $(document).ready(function() {
 
     $("#loginForm").submit(function(e){
         e.preventDefault();
-        var login = {};
-        login.username = $("#username").val();
-        login.password = $("#password").val();
-        console.log(login)
+        var signup = {};
+        signup.username = $("#username").val();
+        signup.password = $("#password").val();
+        console.log(signup)
         $.ajax({
             type: "POST",
             url : "/users",
-            data: JSON.stringify(login),
+            data: JSON.stringify(signup),
             dataType: "json",
+            contentType: "application/json", 
             success: function(data, textStatus, jqXHR)
                 {
                     //data - response from server
@@ -86,11 +87,10 @@ $(document).ready(function() {
                 },
             error: function (jqXHR, textStatus, errorThrown)
                 {
+                    //Quick and easy console log command
                     console.log('login failed')
                 }
         });
 
     })
-
-  console.log("Hello world!");
 });
