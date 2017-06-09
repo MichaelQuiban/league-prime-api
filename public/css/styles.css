@@ -1,176 +1,188 @@
-body {
-	background-image: url("http://www.lolking.net/images/background.jpg");
-	width: 100%;
-}
+	body {
+	    background-image: url("http://www.lolking.net/images/background.jpg");
+	    width: 100%;
+	}
+	a {
+	    text-decoration: none;
+	    /* no underline */
+	    
+	    color: #fff;
+	}
+	input:focus::-webkit-input-placeholder {
+	    color: transparent;
+	}
+	input:focus:-moz-placeholder {
+	    color: transparent;
+	}
+	/* FF 4-18 */
 
-a {
-	text-decoration: none; /* no underline */
-	color: #fff;
-}
+	input:focus::-moz-placeholder {
+	    color: transparent;
+	}
+	/* FF 19+ */
 
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+	input:focus:-ms-input-placeholder {
+	    color: transparent;
+	}
+	/* IE 10+ */
+	/*Index: The Login Screen */
 
+	.header-font {
+	    font-size: 1.8em;
+	    padding: 0px;
+	    margin: 20px 3px;
+	    color: #ffcd03;
+	    height: auto;
+	    font-family: 'Vollkorn', serif;
+	    text-align: center;
+	    font-weight: 100;
+	}
+	.sub-font {
+	    padding: 0px 0px 10px 0px;
+	    margin: 0px 3px 6px 0px;
+	    height: auto;
+	    color: #ffcd03;
+	    font-weight: 100;
+	}
+	#login-section {
+	    height: 225px;
+	    width: 705px;
+	    position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -112.5px;
+	    margin-left: -352.5px;
+	    background-color: #272727;
+	    border: solid 2px black;
+	    box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+	    text-align: center;
+	}
+	.login-creds {
+	    height: 25px;
+	    width: 250px;
+	    margin-bottom: 5px;
+	    font-size: 0.7em;
+	    background-color: #343434;
+	    padding: 2px;
+	    border: 1px solid black;
+	    color: white;
+	}
+	#forgot-password {
+	    margin-left: 182px;
+	    font-family: 'Vollkorn', serif;
+	}
+	input[type=submit],
+	input[type=button] {
+	    color: #ffcd03;
+	    border: solid 1px #5a5a5a;
+	    box-sizing: border-box;
+	    border-width: 2px;
+	    opacity: 0.8;
+	    padding: 0px 20px;
+	    font-family: 'Vollkorn', serif;
+	    font-size: 15px;
+	    box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+	}
+	input[type=submit]:hover,
+	input[type=button]:hover {
+	    opacity: 0.5;
+	    cursor: pointer;
+	}
+	input[type=text],
+	input[type=password] {
+	    background-color: rgba(0, 0, 0, 0.6);
+	}
+	/*Signup: The Signup Page */
 
-/*Index: The Login Screen */
-.header-font {
-	font-size: 1.8em;
-	padding: 0px;
-	margin: 20px 3px;
-	color: #ffcd03;
-	height: auto;
-	font-family: 'Vollkorn', serif;
-	text-align: center;
-	font-weight: 100;
-}
+	#sign-up {
+	    height: 225px;
+	    width: 705px;
+	    position: fixed;
+	    top: 50%;
+	    left: 50%;
+	    margin-top: -112.5px;
+	    margin-left: -352.5px;
+	    background-color: #272727;
+	    border: solid 2px black;
+	    box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
+	    text-align: center;
+	}
+	.signup-creds {
+	    height: 25px;
+	    width: 250px;
+	    margin-bottom: 5px;
+	    font-size: 0.7em;
+	    background-color: #343434;
+	    padding: 2px;
+	    border: 1px solid black;
+	    color: white;
+	}
+	/*Main: The Main Tracking Area */
 
-.sub-font {
-	padding: 0px 0px 10px 0px;
-	margin: 0px 3px 6px 0px;
-	height: auto;
-	color: #ffcd03;
-	font-weight: 100;
-}
+	#logo-header {
+	    width: 650px;
+	    height: 221px;
+	    background-image: url("http://static.wixstatic.com/media/916881_3ed1a86e3bcc4554a001b6936a9da809.png_srz_600_237_85_22_0.50_1.20_0.00_png_srz");
+	    background-repeat: no-repeat;
+	    margin: 0 auto;
+	}
+	.main-header {
+	    text-align: center;
+	}
+	#main {
+	    background-color: black;
+	    opacity: 0.8;
+	}
+	#main-wrapper {
+	    width: 75%;
+	    margin: auto;
+	    margin-top: 50px;
+	}
+	.inner-wrapper {
+	    width: 50%;
+	    margin: auto;
+	    background-color: rgba(70, 61, 57, 1);
+	    padding: 20px 20px;
+	    border: 1px solid black;
+	    box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
+	    text-align: center;
+	}
+	#ranking {
+	    width: 50%;
+	    float: left;
+	}
+	#ranked-form,
+	#champion-form {
+	    padding-bottom: 2px;
+	}
+	#ranked-form [type=text] {
+	    color: white;
+	}
+	#champion {
+	    width: 50%;
+	    float: right;
+	}
+	#champion-form [type=text] {
+	    color: white;
+	}
+	h2 {
+	    margin-bottom: 3px;
+	    color: #FFFFF3;
+	    font-family: 'Vollkorn', serif;
+	    font-weight: 100;
+	}
+	/* Button Style remove */
 
-#login-section {
-	height: 225px;
-	width: 705px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	margin-top: -112.5px; 
-	margin-left: -352.5px; 
-	background-color: #272727;
-	border: solid 2px black;
-	box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-	text-align: center;
-}
-
-.login-creds {
-	height: 25px;
-	width: 250px;
-	margin-bottom: 5px;
-	font-size: 0.7em;
-	background-color: #343434;
-	padding: 2px;
-	border: 1px solid black;
-	color: white;
-}
-
-#forgot-password {
-	margin-left: 182px;
-	font-family: 'Vollkorn', serif;
-}
-
-input[type=submit], input[type=button] {
-	color: #ffcd03;
-	border: solid 1px #5a5a5a;
-	box-sizing: border-box;
-	border-width: 2px;
-	opacity: 0.8;
-	padding: 0px 20px;
-	font-family: 'Vollkorn', serif;
-	font-size: 15px;
-	box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-}
-
-input[type=submit]:hover, input[type=button]:hover {
-	opacity: 0.5;
-	cursor: pointer;
-}
-
-input[type=text], input[type=password] {
-	background-color: rgba(0, 0, 0, 0.6);
-}
-
-/*Signup: The Signup Page */
-#sign-up {
-	height: 225px;
-	width: 705px;
-	position: fixed;
-	top: 50%;
-	left: 50%;
-	margin-top: -112.5px; 
-	margin-left: -352.5px;
-	background-color: #272727;
-	border: solid 2px black;
-	box-shadow: 1px 2px rgba(0, 0, 0, 0.5);
-	text-align: center;
-} 
-
-/*Main: The Main Tracking Area */
-#logo-header {
-	width: 650px;
-	height: 221px;
-	background-image: url("http://static.wixstatic.com/media/916881_3ed1a86e3bcc4554a001b6936a9da809.png_srz_600_237_85_22_0.50_1.20_0.00_png_srz");
-	background-repeat: no-repeat;
-	margin: 0 auto;
-}
-
-.main-header {
-	text-align: center;
-}
-
-#main {
-	background-color: black;
-	opacity: 0.8;
-}
-
-#main-wrapper {
-	width: 75%;
-	margin: auto;
-	margin-top: 50px;
-}
-
-.inner-wrapper {
-	width: 50%;
-	margin: auto;
-	background-color: rgba(70, 61, 57, 1);
-	padding: 20px 20px;
-	border: 1px solid black;
-	box-shadow: 3px 3px rgba(0, 0, 0, 0.5);
-	text-align: center;
-}
-
-#ranking {
-	width: 50%;
-	float: left;
-}
-
-#ranked-form, #champion-form {
-	padding-bottom: 2px;
-}
-
-#ranked-form [type=text] {
-	color: white;
-}
-
-#champion {
-	width: 50%;
-	float: right;
-}
-
-#champion-form [type=text] {
-	color: white;
-}
-
-h2 {
-	margin-bottom: 3px;
-	color: #FFFFF3;
-	font-family: 'Vollkorn', serif;
-	font-weight: 100;
-}
-
-/* Button Style remove */
-input[type=text], input[type=email], input[type=submit] {
-  appearance: none;
-  -moz-appearance: none;
-  -webkit-appearance: none;
-  border-radius: 0;
-  -moz-border-radius: 0;
-  -webkit-border-radius: 0;
-  background: none;
-  outline: none;
-}
+	input[type=text],
+	input[type=email],
+	input[type=submit],
+	input[type=button] {
+	    appearance: none;
+	    -moz-appearance: none;
+	    -webkit-appearance: none;
+	    border-radius: 0;
+	    -moz-border-radius: 0;
+	    -webkit-border-radius: 0;
+	    background: none;
+	    outline: none;
+	}

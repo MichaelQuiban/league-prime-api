@@ -15,10 +15,14 @@
             <form id="loginForm">
                <!-- Submit request - PUT -->
                 <input id="username" class="login-creds" type='text' placeholder="Username" required>
+
                 <input id="password" class="login-creds" type='password' placeholder="Password" required>
-                <input type='submit' class="login" value="Login" href="main.html">
+
+                <input type='submit' class="login" value="Login" onclick="window.location.href='/main.html'">
+
                 <input type='button' class="sign-up" value="Sign Up" onclick="window.location.href='/signup.html'">
-                <a href="" id="forgot-password">Forgotten Password?</a>
+                
+                <a href="http://lmgtfy.com/?q=I+forgot+my+password" id="forgot-password">Forgotten Password?</a>
             </form>
         </section>
         <script

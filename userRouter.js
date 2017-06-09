@@ -91,7 +91,7 @@ router.post('/',(req, res) =>  {
         })
     })
     .then(user => {
-        return res.status(201).json(user); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
+        return res.status(200).json(user); //http://www.restpatterns.org/HTTP_Status_Codes/201_-_Created
     })
     .catch(err => {
         if (err.name === 'AuthenticationError') {

@@ -68,27 +68,28 @@ $(document).ready(function() {
     	getAndDisplaySummonerData();
     });
 
-    $("#loginForm").submit(function(e){
+    $("#sign-up").submit(function(e){
         e.preventDefault();
-        var signup = {};
-        signup.username = $("#username").val();
-        signup.password = $("#password").val();
-        console.log(signup)
+        var register = {};
+        register.username = $("#signup-username").val();
+        register.password = $("#signup-password").val();
+        console.log(register)
         $.ajax({
             type: "POST",
             url : "/users",
-            data: JSON.stringify(signup),
+            data: JSON.stringify(register),
             dataType: "json",
             contentType: "application/json", 
             success: function(data, textStatus, jqXHR)
                 {
                     //data - response from server
                     console.log(data);
+                    window.location.href='/main.html';
                 },
             error: function (jqXHR, textStatus, errorThrown)
                 {
                     //quick and easy console log command
-                    console.log('login failed')
+                    console.log('login failed');
                 }
         });
     })
