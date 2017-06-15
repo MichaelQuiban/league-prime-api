@@ -25,7 +25,7 @@ UserSchema.statics.hashPassword = function(password){
 }
 
 //Champion Tracking Data
-const championSchema = mongoose.Schema({
+const ChampionSchema = mongoose.Schema({
 	username: {type: String, required: true},
 	name: {type: String, required: true, unique: true}, //Champion Name
 	lane: {type: String, required: true}, //Which lane did you play in?
@@ -40,7 +40,7 @@ const championSchema = mongoose.Schema({
 
 //Create a model using the schema data.
 const User = mongoose.model('User', UserSchema);
-const Champion = mongoose.model('Champion', championSchema);
+const Champion = mongoose.model('Champion', ChampionSchema);
 
 //Make this available to our users in the League-Prime-Api
 module.exports = {User, Champion};

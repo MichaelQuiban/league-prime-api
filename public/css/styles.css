@@ -117,6 +117,12 @@
 	    border: 1px solid black;
 	    color: white;
 	}
+
+	#response {
+		color:white;
+		font-weight: 300;
+		font-family: "font-family: 'Vollkorn', serif;";
+	}
 	/*Main: The Main Tracking Area */
 
 	#logo-header {
