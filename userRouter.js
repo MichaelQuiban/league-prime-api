@@ -5,7 +5,7 @@ const passport = require('passport');
 const session = require('express-session');
 
 
-const {User} = require('/models'); //Based off the User Schema created.
+const {User} = require('./models'); //Based off the User Schema created.
 
 const router = express.Router();
 
