@@ -169,4 +169,4 @@ router.get('/userRouter')
 passport.use(basicStrategy);
 router.use(passport.initialize());
 
-module.exports = router;
+module.exports = {router};

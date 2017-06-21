@@ -1,12 +1,10 @@
 const parser = require('body-parser');
-
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-
 const {User,Champion} = require('./models');
-const userRouter = require('./userRouter');
-const championRouter = require('./championRouter');
+const {router: userRouter} = require('./userRouter');
+const {router: championRouter} = require('./championRouter');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');

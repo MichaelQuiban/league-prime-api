@@ -4,7 +4,7 @@ const app = require('./server.js')
 
 const bodyParser = require('body-parser').json();
 
-const {Champion} = require('/models');
+const {Champion} = require('./models');
 
 router.use(bodyParser);
 
