@@ -2,6 +2,9 @@ const parser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+var expressSession = require('express-session');
+var expressValidator = require('express-validaor');
+
 const {User,Champion} = require('./models');
 const {router: userRouter} = require('./userRouter');
 const {router: championRouter} = require('./championRouter');
@@ -21,6 +24,7 @@ app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsin
 app.use(parser.urlencoded({
   extended: true
 }));
+app.use(expressValidator());
 
 //Static server for API
 app.use(express.static('public'));
