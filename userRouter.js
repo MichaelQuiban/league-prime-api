@@ -165,6 +165,21 @@ router.post('/ranking', (req, res) => {
     */
 }) 
 
+app.post('/login', function(req, res) {
+    user.findOne({ username: req.body.username}, function(err, user) {
+        if (!user) {
+            res.render('login', {error: 'Invalid email or password.'});
+        } else {
+            if (req.body.password === user.password) {
+                req.session.user = user;
+                res.redirect('/main');
+            } else {
+                res.render('login', {error: 'Invalid email or password.'});
+            }
+        }
+    });
+});
+
 router.get('/userRouter')
 passport.use(basicStrategy);
 router.use(passport.initialize());

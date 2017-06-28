@@ -3,7 +3,7 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
 var expressSession = require('express-session');
-var expressValidator = require('express-validaor');
+var expressValidator = require('express-validator');
 
 const {User,Champion} = require('./models');
 const {router: userRouter} = require('./userRouter');
@@ -26,7 +26,18 @@ app.use(parser.urlencoded({
 }));
 app.use(expressValidator());
 
-//Static server for API
+  //Session hander middleware
+app.use(expressSession({
+  secret:"league", 
+  saveUnitialized: false, 
+  resave: false, 
+  //How long the session lives in milliseconds
+  duration: 30 * 60 * 1000,
+  activeDuration: 5 * 60 * 1000
+}));
+
+
+//Static serv6aer for API
 app.use(express.static('public'));
 
 //Mongoose' internal promise-like object.

@@ -1,6 +1,4 @@
 $(document).ready(function() {
-var expressSession = require('express-session');
-var expressValidator = require('express-validaor');
 
     $("#sign-up").submit(function(e) {
         e.preventDefault();

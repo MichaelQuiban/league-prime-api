@@ -12,18 +12,20 @@
                 <h1 class="header-font">Welcome to League Prime</h1>
                 <h3 class="sub-font"> Popular <a href="http://na.leagueoflegends.com/">League of Legends</a> utility to track competitive performance.</h2>
             </header>
-            <form id="loginForm">
+            <form id="loginForm" action = "/submit" method="post">
                <!-- Submit request - PUT -->
-                <input id="username" class="login-creds" type='text' placeholder="Username" required>
+                <input name = "username" id="username" class="login-creds" type='text' placeholder="Username" required>
 
-                <input id="password" class="login-creds" type='password' placeholder="Password" required>
+                <input name = "password" id="password" class="login-creds" type='password' placeholder="Password" required>
 
-                <input type='submit' class="login" value="Login" onclick="window.location.href='/main.html'">
+                <input name = "submit" type='submit' class="login" value="Login" onclick="window.location.href='/main.html'">
 
                 <input type='button' class="sign-up" value="Sign Up" onclick="window.location.href='/signup.html'">
                 
                 <a href="http://lmgtfy.com/?q=I+forgot+my+password" id="forgot-password">Forgotten Password?</a>
             </form>
+            <p id = "success"></p>
+            <p id = "failure"></p>
         </section>
         <script
       src="https://code.jquery.com/jquery-3.2.1.min.js"

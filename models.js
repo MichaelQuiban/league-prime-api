@@ -37,9 +37,8 @@ const ChampionSchema = mongoose.Schema({
 	damage: {type: Number} //How much damage did you do?
 });
 
-
 //Create a model using the schema data.
-const User = mongoose.model('User', UserSchema);
+const User = mongoose.model('User', UserSchema);6
 const Champion = mongoose.model('Champion', ChampionSchema);
 
 //Make this available to our users in the League-Prime-Api
