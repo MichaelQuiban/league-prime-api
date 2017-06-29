@@ -26,6 +26,7 @@ $(document).ready(function() {
                 }
         });
 
+        //Ranked input tracker
         $("#ranked-form").submit(function(e) {
             e.preventDefault();
             var ranked = {};
@@ -44,15 +45,49 @@ $(document).ready(function() {
                 {
                     //data - response from server
                     //Add client side Success indicator
-                    let message = "Successfully logged in!";
+                     let message = "Successfully posted ranked data";
                     $("#response").append(${message});
                 },
             error: function(jqXHR, textStatus, errorThrown)
                 {
                     //Add client side success indicator
-                    console.log("failed!")
+                    console.log("failed!");
                 }
             })
         });
+
+         //Champion input tracker
+         $("#champion-form").submit(function(e) {
+            e.preventDefault();
+            var champion = {};
+            champion.ranking = $("#champion-lane").val();
+            champion.elo = $("#champion-wins").val();
+            champion.role = $("#champion-loss").val();
+            champion.progress = $("#champion-build").val();
+            champion.elo = $("#champion-kills").val();
+            champion.role = $("#champion-deaths").val();
+            champion.progress = $("#champion-damage").val();
+            console.log(champion)
+            $.ajax({
+                type: "POST",
+                url: "/users/champions",
+                data: JSON.stringify(champion),
+                dataType: "json",
+                contentType: "application/json",
+                success: function(data, textStatus, jqXHR)
+                {
+                    //data - response from server
+                    //Add client side Success indicator
+                    let message = "Successfully posted champion data";
+                    $("#response").append(${message});
+                },
+            error: function(jqXHR, textStatus, errorThrown)
+                {
+                    //Add client side success indicator
+                    console.log("failed!");
+                }
+            })
+        });
+
     });
 });

@@ -2,12 +2,10 @@ const parser = require('body-parser');
 const express = require('express');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
-var expressSession = require('express-session');
-var expressValidator = require('express-validator');
+var session = require('client-sessions');
 
 const {User,Champion} = require('./models');
 const {router: userRouter} = require('./userRouter');
-const {router: championRouter} = require('./championRouter');
 
 //Database URL's
 const {DATABASE_URL, PORT} = require('./config');
@@ -16,28 +14,21 @@ const app = express();
 app.use(express.static('public'));
 
 app.use('/users', userRouter);
-app.use('/champion', championRouter);
-
 
 app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
 app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.
-app.use(parser.urlencoded({
-  extended: true
-}));
-app.use(expressValidator());
+app.use(parser.urlencoded({extended: true}));
 
   //Session hander middleware
-app.use(expressSession({
-  secret:"league", 
-  saveUnitialized: false, 
-  resave: false, 
-  //How long the session lives in milliseconds
+app.use(session({
+  cookieName: 'session',
+  secret: 'leagueprime',
   duration: 30 * 60 * 1000,
-  activeDuration: 5 * 60 * 1000
+  activeDuration: 5 * 60 * 1000,
 }));
 
 
-//Static serv6aer for API
+//Static server for API
 app.use(express.static('public'));
 
 //Mongoose' internal promise-like object.
@@ -45,7 +36,7 @@ mongoose.Promise = global.Promise;
 
 
 app.use('*', function(res, res){
-  return res.status(404).json({message: 'Not Found'});4
+  return res.status(404).json({message: 'Not Found'});
 });
 
 let server;
