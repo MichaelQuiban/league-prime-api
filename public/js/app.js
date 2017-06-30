@@ -70,7 +70,7 @@ $(document).ready(function() {
             console.log(champion)
             $.ajax({
                 type: "POST",
-                url: "/users/champions",
+                url: "/users/champion",
                 data: JSON.stringify(champion),
                 dataType: "json",
                 contentType: "application/json",
