@@ -5,7 +5,7 @@ $(document).ready(function() {
         var register = {};
         register.username = $("#signup-username").val();
         register.password = $("#signup-password").val();
-        console.log(register)
+        console.log(register);
         $.ajax({
             type: "POST",
             url : "/users/signup",
@@ -20,9 +20,7 @@ $(document).ready(function() {
                 },
             error: function (jqXHR, textStatus, errorThrown)
                 {
-                    //quick and easy console log command
-                    //Add client side success indicator
-                    console.log('login failed');
+                   $("#failure").append("<p>Account already in use, or invalid password.</p>");
                 }
         });
 
@@ -34,7 +32,7 @@ $(document).ready(function() {
             ranked.elo = $("#ranked-elo").val();
             ranked.role = $("#ranked-role").val();
             ranked.progress = $("#ranked-progress").val();
-            console.log(ranked)
+            console.log(ranked);
             $.ajax({
                 type: "POST",
                 url: "/users/ranking",
@@ -43,21 +41,19 @@ $(document).ready(function() {
                 contentType: "application/json",
                 success: function(data, textStatus, jqXHR)
                 {
-                    //data - response from server
                     //Add client side Success indicator
-                     let message = "Successfully posted ranked data";
-                    $("#response").append(${message});
+                    $("#ranked-success").append("<p>Success!</p>");
+                  
                 },
             error: function(jqXHR, textStatus, errorThrown)
                 {
-                    //Add client side success indicator
-                    console.log("failed!");
+                    $("#ranked-failure").append("<p>Data could not be entered. Try again!</p>");
                 }
             })
         });
 
-         //Champion input tracker
-         $("#champion-form").submit(function(e) {
+        //Champion input tracker
+        $("#champion-form").submit(function(e) {
             e.preventDefault();
             var champion = {};
             champion.ranking = $("#champion-lane").val();
@@ -79,7 +75,7 @@ $(document).ready(function() {
                     //data - response from server
                     //Add client side Success indicator
                     let message = "Successfully posted champion data";
-                    $("#response").append(${message});
+                   
                 },
             error: function(jqXHR, textStatus, errorThrown)
                 {

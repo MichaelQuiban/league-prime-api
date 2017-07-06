@@ -114,10 +114,10 @@ router.post('/signup',(req, res) =>  {
 });
 
     router.get('/signup', (req, res) => {
-        return User
+        User
         .find()
         .exec()
-        .then(users => res.json(users))
+        .then(users => res.status(200).json(users))
         .catch(err => console.log(err) && res.status(500).json({message: 'Internal Server error'}));
     })
 
@@ -131,6 +131,7 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
         if (!user) {
             return callback(null, false, {message: 'Incorrect username'});
             let message = "Incorrect Username, please try again"
+            console.log(message);
         }
         return user.validatePassword(password);
     })
@@ -138,7 +139,7 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
         if(!isValid) {
             return callback(null, false, {message: 'Incorrect password'});
             let message = "Incorrect Password, please try again"
-            $("#response").append()
+            console.log(message);
         }
         else {
             return callback(null, user)
@@ -146,42 +147,30 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
     });
 });
 
-router.post('/ranking', (req, res) => {
-   if(!loggedIn) {
-        return res.status(401).send();
-   }
+router.get('/login', function(req, res) {
 
-   return res.status(200).send("Welcome")
-    /* let update = {}
-    update.ranking = req.body.ranking;
-    update.elo = req.body.elo;
-    update.role = req.body.role;
-    update.progress = req.body.progress;
-    User
-    .findOneAndUpdate({username: req.body.username}, update)
-    .exec()
-    .then(user => res.status(204).end())
-    .catch(err => res.status(500).json({message: "Internal Server Error"}));
-    */
-}) 
+});
 
-router.post('/login', function(req, res) {
-    user.findOne({ username: req.body.username}, function(err, user) {
-        if (!user) {
-            res.redirect('/login');
-        } else {
-            if (req.body.password === user.password) {
-                req.session.user = user;
-                res.redirect('/main');
-            } else {
-                res.render('login', {error: 'Invalid email or password.'});
+router.post('/ranking', function(req, res) {
+    var rank = new User({
+        ranking: req.body.ranking,
+        elo: req.body.elo,
+        role: req.body.role,
+    })
+    rank.save(function(err) {
+        if (err) {
+            let err = 'Rank could not be saved! Try again!';
+            if (err.code === 11000) {
+                error = "Rank could be saved, try again!"
             }
         }
-    });
-});
+    })
+})
 
 router.get('/userRouter')
 passport.use(basicStrategy);
 router.use(passport.initialize());
 
 module.exports = {router};
+
+//Verify with unit tests for ranking, verify object, and champion data.

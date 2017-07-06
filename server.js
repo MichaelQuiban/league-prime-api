@@ -7,7 +7,6 @@ var session = require('client-sessions');
 const {User,Champion} = require('./models');
 const {router: userRouter} = require('./userRouter');
 
-//Database URL's
 const {DATABASE_URL, PORT} = require('./config');
 
 const app = express();
@@ -15,11 +14,10 @@ app.use(express.static('public'));
 
 app.use('/users', userRouter);
 
+//middleware
 app.use(morgan('common')); //https://www.npmjs.com/package/morgan || Standard Apache common log output.
 app.use(parser.json());//https://github.com/expressjs/body-parser || Body parsing middleware.
 app.use(parser.urlencoded({extended: true}));
-
-  //Session hander middleware
 app.use(session({
   cookieName: 'session',
   secret: 'leagueprime',
@@ -27,13 +25,11 @@ app.use(session({
   activeDuration: 5 * 60 * 1000,
 }));
 
-
 //Static server for API
 app.use(express.static('public'));
 
 //Mongoose' internal promise-like object.
 mongoose.Promise = global.Promise;
-
 
 app.use('*', function(res, res){
   return res.status(404).json({message: 'Not Found'});
