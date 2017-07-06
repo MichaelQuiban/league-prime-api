@@ -147,8 +147,16 @@ const basicStrategy = new BasicStrategy(function(username, password, callback) {
     });
 });
 
-router.get('/login', function(req, res) {
-
+router.post('/login', function(req, res) {
+    User.findOne({ username: req.body.username}), function(err, user) {
+        if(!user) {
+            res.redirect('/signup')
+        } else {
+            if (req.body.password === user.password) {
+            res.redirect('/main')
+            }
+        }
+    }
 });
 
 router.post('/ranking', function(req, res) {

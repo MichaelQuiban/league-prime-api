@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    $()
+
 
     $("#sign-up").submit(function(e) {
         e.preventDefault();
@@ -31,7 +33,6 @@ $(document).ready(function() {
             ranked.ranking = $("#ranked-input").val();
             ranked.elo = $("#ranked-elo").val();
             ranked.role = $("#ranked-role").val();
-            ranked.progress = $("#ranked-progress").val();
             console.log(ranked);
             $.ajax({
                 type: "POST",
